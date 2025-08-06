@@ -13,6 +13,6 @@
  */
 int main(void)
 {
-	printf("%d\n", size);
+	printf("%d\n", size_t);
 	return (0);
 }
