@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	int one
-	long int tvelve
-	long long int one_hundred_tvelve
-	char Suleyman
-	float one_point_five
+	int one;
+	long int tvelve;
+	long long int one_hundred_tvelve;
+	char Suleyman;
+	float one_point_five;
 	printf("Size of an int: %lu byte(s)\n", sizeof (one));
 	printf("Size of long int: %lu byte(s)\n", sizeof (tvelve));
 	printf("Size of long long int: %lu byte(s)\n", sizeof (one_hundred_tvelve));
