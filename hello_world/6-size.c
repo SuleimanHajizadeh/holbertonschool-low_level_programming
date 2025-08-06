@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	printf($size);
+	printf("%lu\n", sizeof(...));
 	return (0);
 }
 /**
