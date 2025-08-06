@@ -1,8 +1,13 @@
 #include <stdio.h>
 /**
- * main - prints a specific sentence using puts
+ * main - Entry point of the program
  *
- * Return:  Always 0 (success)
+ * Description: Prints the size of various C data types using sizeof.
+ * The output will vary depending on the architecture (32-bit vs 64-bit).
+ * This program helps to understand memory allocation for types like
+ * char, int, long int, long long int, and float.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
