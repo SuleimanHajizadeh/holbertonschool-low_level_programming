@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 /**
- * main - Prints the sizes of various C data types
+ * main - prints a specific sentence using puts
  *
- * Return: Always 0 (Success)
+ * Return:  Always 0 (success)
  */
 int main(void)
 {
