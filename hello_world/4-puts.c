@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * puts - prints string
+ *
+ * Return: returns zero at end
+*/
 
 int main(void)
 {
