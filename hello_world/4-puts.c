@@ -2,6 +2,8 @@
 /**
  * puts - prints string
  *
+ * Description: purs amamm
+ *
  * Return: returns zero at end
 */
 
