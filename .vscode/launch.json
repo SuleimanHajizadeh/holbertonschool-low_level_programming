@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/macbookairm2/Documents/GitHub/holbertonschool-low_level_programming/variables_if_else_while",
+      "program": "/Users/macbookairm2/Documents/GitHub/holbertonschool-low_level_programming/variables_if_else_while/build/Debug/outDebug"
+    }
+  ]
+}
