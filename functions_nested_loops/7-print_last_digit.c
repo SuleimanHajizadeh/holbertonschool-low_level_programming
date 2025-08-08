@@ -8,9 +8,13 @@
  */
 int print_last_digit(int n)
 {
-	int last_digit;
+	int lsd;
 
-	last_digit = _abs(n % 10); /* get last digit and make it positive */
-	_putchar(last_digit + '0'); /* convert digit to char and print */
-	return (last_digit);
+	lsd = n % 10;
+	if (lsd < 0)
+	{
+		lsd = -lsd;
+	}
+	_ptchar(lsd + '0');
+	return (lsd);
 }
