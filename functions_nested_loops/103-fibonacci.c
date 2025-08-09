@@ -9,7 +9,7 @@
 int main(void)
 {
     unsigned long fib1 = 1, fib2 = 2, next;
-    unsigned long sum = 2;  // 2 is even, starts sum from 2
+    unsigned long sum = 2;  /* 2 is even, starts sum from 2 */
 
     while (1)
     {
