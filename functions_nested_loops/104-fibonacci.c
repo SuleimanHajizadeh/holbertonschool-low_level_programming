@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-/**
- * main - prints the first 98 Fibonacci numbers starting with 1 and 2
- *
- * Return: Always 0 (Success)
- */
 int main(void)
 {
 	unsigned long fib1_h = 0, fib1_l = 1;
@@ -18,7 +13,6 @@ int main(void)
 	{
 		next_l = fib1_l + fib2_l;
 		next_h = fib1_h + fib2_h;
-
 		if (next_l < fib1_l)
 			next_h += 1;
 
@@ -33,7 +27,5 @@ int main(void)
 		fib2_h = next_h;
 	}
 	printf("\n");
-
 	return (0);
 }
-
