@@ -7,8 +7,8 @@
  */
 int main(void)
 {
-	unsigned long long n = 612852475143;
-	unsigned long long i;
+	unsigned long n = 612852475143UL; /* 64-bit platformlarda kifayət edər */
+	unsigned long i;
 
 	while (n % 2 == 0)
 		n /= 2;
@@ -17,12 +17,11 @@ int main(void)
 	while (i * i <= n)
 	{
 		while (n % i == 0)
-		{
 			n /= i;
-		}
 		i += 2;
 	}
-	printf("%llu\n", (n > 2) ? n : i - 2);
+
+	printf("%lu\n", (n > 2) ? n : i - 2);
 
 	return (0);
 }
