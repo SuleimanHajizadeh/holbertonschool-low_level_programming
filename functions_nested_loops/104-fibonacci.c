@@ -16,19 +16,15 @@ int main(void)
 
 	for (count = 3; count <= 98; count++)
 	{
-		/* Next Fibonacci = fib1 + fib2 */
-		next_l = fib1_l + fib2_l;
+		next_l = fib1_l + fib2_h;
 		next_h = fib1_h + fib2_h;
 		if (next_l < fib1_l)
 			next_h += 1;
-
-		/* Çap et */
 		if (next_h == 0)
 			printf(", %lu", next_l);
 		else
 			printf(", %lu%09lu", next_h, next_l);
 
-		/* növbəti ədəd üçün dəyiş */
 		fib1_l = fib2_l;
 		fib1_h = fib2_h;
 		fib2_l = next_l;
