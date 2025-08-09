@@ -10,11 +10,11 @@ int main(void)
 {
 	int count;
 	unsigned long fib1 = 1, fib2 = 2, sum;
-	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
-	unsigned long half1, half2;
+	unsigned long fib1_h, fib1_l, fib2_h, fib2_l;
+	unsigned long half_h, half_l;
 
-	/* İlk 92 Fibonacci ədədi (64-bit dəyişənlərdə rahat saxlanır) */
 	printf("%lu, %lu", fib1, fib2);
+
 	for (count = 3; count <= 92; count++)
 	{
 		sum = fib1 + fib2;
@@ -23,31 +23,28 @@ int main(void)
 		fib2 = sum;
 	}
 
-	/* Böyük Fibonacci ədədləri üçün ədədi hissələrə ayır */
-	fib1_half1 = fib1 / 10000000000;
-	fib1_half2 = fib1 % 10000000000;
-	fib2_half1 = fib2 / 10000000000;
-	fib2_half2 = fib2 % 10000000000;
+	fib1_h = fib1 / 10000000000;
+	fib1_l = fib1 % 10000000000;
+	fib2_h = fib2 / 10000000000;
+	fib2_l = fib2 % 10000000000;
 
-	/* Sonrakı 6 Fibonacci ədədini iki hissə kimi hesabla */
 	for (count = 93; count <= 98; count++)
 	{
-		half1 = fib1_half1 + fib2_half1;
-		half2 = fib1_half2 + fib2_half2;
-		if (half2 > 9999999999)
+		half_h = fib1_h + fib2_h;
+		half_l = fib1_l + fib2_l;
+		if (half_l > 9999999999)
 		{
-			half1 += 1;
-			half2 %= 10000000000;
+			half_h += 1;
+			half_l %= 10000000000;
 		}
+		printf(", %lu%09lu", half_h, half_l);
 
-		printf(", %lu%09lu", half1, half2);
-
-		fib1_half1 = fib2_half1;
-		fib1_half2 = fib2_half2;
-		fib2_half1 = half1;
-		fib2_half2 = half2;
+		fib1_h = fib2_h;
+		fib1_l = fib2_l;
+		fib2_h = half_h;
+		fib2_l = half_l;
 	}
-	printf("\n");
 
+	printf("\n");
 	return (0);
 }
