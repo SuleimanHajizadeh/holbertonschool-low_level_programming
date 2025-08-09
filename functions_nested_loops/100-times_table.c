@@ -1,12 +1,21 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_times_table - Prints the n times table, starting with 0
- * @n: The times table number to print
- *
- * Description: Only prints the table if 0 <= n <= 15.
- * The table is formatted so that columns align properly.
+ * print_number - prints an integer (0-225) using _putchar
+ * @n: integer to print
+ */
+void print_number(int n)
+{
+	if (n >= 100)
+		_putchar((n / 100) + '0');
+	if (n >= 10)
+		_putchar(((n / 10) % 10) + '0');
+	_putchar((n % 10) + '0');
+}
+
+/**
+ * print_times_table - prints the n times table, starting from 0
+ * @n: times table size (0 <= n <= 15)
  */
 void print_times_table(int n)
 {
@@ -22,13 +31,28 @@ void print_times_table(int n)
 			prod = row * col;
 
 			if (col == 0)
-				printf("%d", prod);
+			{
+				print_number(prod);
+			}
 			else
-				printf("%4d", prod);
-
-			if (col != n)
-				printf(",");
+			{
+				_putchar(',');
+				_putchar(' ');
+				if (prod < 10)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					print_number(prod);
+				}
+				else if (prod < 100)
+				{
+					_putchar(' ');
+					print_number(prod);
+				}
+				else
+					print_number(prod);
+			}
 		}
-		printf("\n");
+		_putchar('\n');
 	}
 }
