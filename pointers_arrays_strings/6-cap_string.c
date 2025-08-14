@@ -9,34 +9,20 @@
 char *cap_string(char *str)
 {
 	int i = 0;
-	int new_word = 1; /* Flag to detect start of a word */
-	char sep[] = " \t\n,;.!?\"(){}";
-	int j;
 
 	while (str[i] != '\0')
 	{
-		/* Check if current char is a separator */
-		for (j = 0; sep[j] != '\0'; j++)
+		/* Capitalize if first character or after a separator */
+		if (i == 0 ||
+			str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n' ||
+			str[i - 1] == ',' || str[i - 1] == ';' || str[i - 1] == '.' ||
+			str[i - 1] == '!' || str[i - 1] == '?' || str[i - 1] == '"' ||
+			str[i - 1] == '(' || str[i - 1] == ')' ||
+			str[i - 1] == '{' || str[i - 1] == '}')
 		{
-			if (str[i] == sep[j])
-			{
-				new_word = 1;
-				break;
-			}
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] -= 32;
 		}
-
-		/* If it's a word start and it's lowercase, capitalize it */
-		if (new_word && (str[i] >= 'a' && str[i] <= 'z'))
-		{
-			str[i] -= 32;
-			new_word = 0;
-		}
-		else if (j == 0 || sep[j] == '\0')
-		{
-			/* Inside a word */
-			new_word = 0;
-		}
-
 		i++;
 	}
 	return (str);
