@@ -13,11 +13,13 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i = 0, j = 0, k = 0, len1 = 0, len2 = 0, carry = 0, sum = 0;
 
+	/* Calculate the lengths of the numbers */
 	while (n1[len1] != '\0')
 		len1++;
 	while (n2[len2] != '\0')
 		len2++;
 
+	/* Check if buffer is large enough */
 	if (size_r <= ((len1 > len2 ? len1 : len2) + 1))
 		return (0);
 
@@ -25,6 +27,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	j = len2 - 1;
 	k = 0;
 
+	/* Add numbers from the end */
 	while (i >= 0 || j >= 0 || carry)
 	{
 		sum = carry;
@@ -40,7 +43,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	r[k] = '\0';
 
-	/* reverse the result */
+	/* Reverse the result */
 	for (i = 0, j = k - 1; i < j; i++, j--)
 	{
 		char tmp = r[i];
