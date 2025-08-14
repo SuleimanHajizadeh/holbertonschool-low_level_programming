@@ -11,7 +11,7 @@ int main(void)
     b[3] = 398;
     b[4] = 498;
     c = b + 2;
-    /* Your line of code goes here (line 19) */
+    /* Your line of code goes here (line 18) */
     ;
     printf("b[2] = %d\n", b[2]);
     return (0);
