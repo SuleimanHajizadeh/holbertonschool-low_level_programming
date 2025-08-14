@@ -19,34 +19,27 @@ void print_buffer(char *b, int size)
 
 	for (i = 0; i < size; i += 10)
 	{
-		/* print offset */
 		printf("%08x: ", i);
 
-		/* print hex bytes, two bytes at a time, space separated */
 		for (j = 0; j < 10; j += 2)
 		{
 			idx = i + j;
-
-			/* first byte of the pair */
 			if (idx < size)
 				printf("%02x", (unsigned char)b[idx]);
 			else
 				printf("  ");
 
-			/* second byte of the pair */
 			if ((idx + 1) < size)
 				printf("%02x", (unsigned char)b[idx + 1]);
 			else
 				printf("  ");
 
-			/* space after each pair */
-			printf(" ");
+			if (j != 8)
+				printf(" ");
 		}
 
-		/* two spaces before ASCII representation */
 		printf(" ");
 
-		/* print ASCII (printable) or '.' for non-printable */
 		for (j = 0; j < 10; j++)
 		{
 			idx = i + j;
