@@ -9,7 +9,19 @@ int _putchar(char c)
     return putchar(c);
 }
 
-/* Multiply two positive numbers given as strings */
+/* Check if a string contains only digits */
+int is_number(const char *str)
+{
+    while (*str)
+    {
+        if (!isdigit(*str))
+            return 0;
+        str++;
+    }
+    return 1;
+}
+
+/* Multiply two strings representing numbers */
 char *multiply_strings(const char *num1, const char *num2)
 {
     int len1 = strlen(num1), len2 = strlen(num2);
@@ -59,19 +71,6 @@ char *multiply_strings(const char *num1, const char *num2)
     return result_str;
 }
 
-/* Check if a string contains only digits */
-int is_number(const char *str)
-{
-    while (*str)
-    {
-        if (!isdigit(*str))
-            return 0;
-        str++;
-    }
-    return 1;
-}
-
-/* Main program */
 int main(int argc, char *argv[])
 {
     char *result;
