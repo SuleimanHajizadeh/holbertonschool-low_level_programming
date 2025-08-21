@@ -9,11 +9,11 @@
  */
 int check_prime(int n, int i)
 {
-    if (i * i > n)  /* If divisor squared > n, no divisors left */
-        return (1);
-    if (n % i == 0) /* Found a divisor */
-        return (0);
-    return (check_prime(n, i + 1)); /* Check next divisor */
+	if (i * i > n)  /* If divisor squared > n, no divisors left */
+		return (1);
+	if (n % i == 0) /* Found a divisor */
+		return (0);
+	return (check_prime(n, i + 1)); /* Check next divisor */
 }
 
 /**
@@ -24,7 +24,7 @@ int check_prime(int n, int i)
  */
 int is_prime_number(int n)
 {
-    if (n <= 1)
-        return (0);
-    return (check_prime(n, 2));
+	if (n <= 1)
+		return (0);
+	return (check_prime(n, 2));
 }
