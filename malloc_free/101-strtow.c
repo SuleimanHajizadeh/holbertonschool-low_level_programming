@@ -29,7 +29,7 @@ static int word_count(char *str)
 char **strtow(char *str)
 {
 	char **words;
-	int i = 0, j = 0, k = 0, w_count, start, end;
+	int i = 0, k = 0, w_count, start, end;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -54,5 +54,18 @@ char **strtow(char *str)
 		words[k] = malloc(sizeof(char) * (end - start + 1));
 		if (words[k] == NULL)
 		{
-			while (k-- > 0)
-				free(words[k]);
+			for (i = 0; i < k; i++)
+				free(words[i]);
+			free(words);
+			return (NULL);
+		}
+
+		for (i = start; i < end; i++)
+			words[k][i - start] = str[i];
+		words[k][end - start] = '\0';
+		k++;
+	}
+
+	words[k] = NULL;
+	return (words);
+}
