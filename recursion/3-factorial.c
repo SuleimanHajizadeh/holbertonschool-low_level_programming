@@ -3,7 +3,7 @@
 /**
  * n is lower than 0
  * Factorial of 0 is 1
-
+ *
  return -1
  */
 int factorial(int n)
