@@ -7,8 +7,9 @@
  * @s2: second string
  * @n: number of bytes to take from s2
  *
- * Return: pointer to newly allocated space in memory containing s1 + first n of s2
- *         NULL if allocation fails
+ * Return: pointer to newly allocated space in memory
+ * containing s1 followed by the first n bytes of s2
+ * NULL if allocation fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
