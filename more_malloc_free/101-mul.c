@@ -1,110 +1,118 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-int _isdigit(char *s);
-void _error(void);
-int _strlen(char *s);
-void multiply(char *num1, char *num2);
+#include <ctype.h>
+#include <string.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vector
- *
- * Return: 0 if success
+ * print_error - prints "Error" and exits with status 98
  */
-int main(int argc, char *argv[])
-{
-	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-		_error();
-
-	multiply(argv[1], argv[2]);
-	return (0);
-}
-
-/**
- * _isdigit - checks if a string is composed only of digits
- * @s: string
- *
- * Return: 1 if all digits, 0 otherwise
- */
-int _isdigit(char *s)
-{
-	int i = 0;
-
-	while (s[i])
-	{
-		if (s[i] < '0' || s[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/**
- * _strlen - returns string length
- * @s: string
- *
- * Return: length
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i])
-		i++;
-	return (i);
-}
-
-/**
- * _error - prints error and exits with status 98
- */
-void _error(void)
+void print_error(void)
 {
 	printf("Error\n");
 	exit(98);
 }
 
 /**
- * multiply - multiplies two numbers given as strings
- * @num1: first number
- * @num2: second number
+ * is_digit_str - check if a string is composed only of digits
+ * @s: input string
+ * Return: 1 if only digits, 0 otherwise
  */
-void multiply(char *num1, char *num2)
+int is_digit_str(char *s)
 {
-	int len1 = _strlen(num1), len2 = _strlen(num2);
-	int *res, i, j, carry, n1, n2, sum, start;
+	int i;
 
-	res = calloc(len1 + len2, sizeof(int));
+	for (i = 0; s[i]; i++)
+	{
+		if (!isdigit((unsigned char)s[i]))
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * multiply - multiply two numbers represented as strings
+ * @num1: first number (string)
+ * @num2: second number (string)
+ * Return: result as a string (caller must free)
+ */
+char *multiply(char *num1, char *num2)
+{
+	int len1 = strlen(num1);
+	int len2 = strlen(num2);
+	int *res = calloc(len1 + len2, sizeof(int));
+	char *result;
+	int i, j, carry, prod, k, start;
+
 	if (!res)
-		exit(98);
+		return (NULL);
 
+	/* Perform multiplication like on paper */
 	for (i = len1 - 1; i >= 0; i--)
 	{
-		carry = 0;
-		n1 = num1[i] - '0';
+		if (!isdigit((unsigned char)num1[i]))
+			return (free(res), NULL);
 		for (j = len2 - 1; j >= 0; j--)
 		{
-			n2 = num2[j] - '0';
-			sum = n1 * n2 + res[i + j + 1] + carry;
-			carry = sum / 10;
-			res[i + j + 1] = sum % 10;
+			if (!isdigit((unsigned char)num2[j]))
+				return (free(res), NULL);
+			prod = (num1[i] - '0') * (num2[j] - '0');
+			carry = prod + res[i + j + 1];
+			res[i + j + 1] = carry % 10;
+			res[i + j] += carry / 10;
 		}
-		res[i + j + 1] += carry;
 	}
 
+	/* Skip leading zeros */
 	start = 0;
-	while (start < (len1 + len2) && res[start] == 0)
+	while (start < len1 + len2 && res[start] == 0)
 		start++;
 
+	/* If result is 0 */
 	if (start == len1 + len2)
-		_putchar('0');
-	else
 	{
-		for (; start < len1 + len2; start++)
-			_putchar(res[start] + '0');
+		result = malloc(2);
+		if (!result)
+			return (free(res), NULL);
+		result[0] = '0';
+		result[1] = '\0';
+		free(res);
+		return (result);
 	}
-	_putchar('\n');
+
+	/* Convert int array to string */
+	result = malloc(len1 + len2 - start + 1);
+	if (!result)
+		return (free(res), NULL);
+
+	for (k = 0; start < len1 + len2; start++, k++)
+		result[k] = res[start] + '0';
+	result[k] = '\0';
+
 	free(res);
+	return (result);
+}
+
+/**
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 on success
+ */
+int main(int argc, char **argv)
+{
+	char *res;
+
+	if (argc != 3)
+		print_error();
+	if (!is_digit_str(argv[1]) || !is_digit_str(argv[2]))
+		print_error();
+
+	res = multiply(argv[1], argv[2]);
+	if (!res)
+		print_error();
+
+	printf("%s\n", res);
+	free(res);
+	return (0);
 }
