@@ -5,27 +5,29 @@
 #include <string.h>
 
 /**
- * print_error - Prints "Error" followed by a new line and exits with status 98
+ * free_and_exit - Frees allocated memory if present, then exits with status 98
+ * @ptr: Pointer to free (can be NULL)
  *
  * Return: Nothing (program exits)
  */
-void print_error(void)
+void free_and_exit(int *ptr)
 {
+	if (ptr != NULL)
+		free(ptr);
 	printf("Error\n");
 	exit(98);
 }
 
 /**
- * is_digit_str - Checks if a string consists of only digits
- * @s: The string to check
+ * is_digit_str - Checks if a string is only composed of digits
+ * @s: String to check
  *
- * Return: 1 if string is valid (all digits), 0 otherwise
+ * Return: 1 if string is valid, 0 otherwise
  */
 int is_digit_str(char *s)
 {
 	if (!s || *s == '\0')
 		return (0);
-
 	while (*s)
 	{
 		if (!isdigit(*s))
@@ -36,42 +38,38 @@ int is_digit_str(char *s)
 }
 
 /**
- * multiply_and_print - Multiplies two positive numbers given as strings
- * @num1: First number as a string
- * @num2: Second number as a string
- *
- * Description:
- * Uses the grade-school multiplication algorithm to handle arbitrarily
- * large positive integers and prints the result.
+ * multiply_and_print - Multiplies two large positive integers
+ * @num1: First number as string
+ * @num2: Second number as string
  *
  * Return: Nothing
  */
 void multiply_and_print(char *num1, char *num2)
 {
-	size_t len1 = strlen(num1), len2 = strlen(num2), len = len1 + len2;
-	int *res;
+	size_t len1 = strlen(num1), len2 = strlen(num2);
+	size_t len = len1 + len2;
+	int *res, d1, d2, carry, sum;
 	size_t i, j;
 
 	res = calloc(len, sizeof(int));
 	if (res == NULL)
-		print_error();
+		free_and_exit(NULL);
 
 	for (i = 0; i < len1; i++)
 	{
-		int d1 = num1[len1 - 1 - i] - '0';
-		int carry = 0;
-
+		d1 = num1[len1 - 1 - i] - '0';
+		carry = 0;
 		for (j = 0; j < len2; j++)
 		{
-			int d2 = num2[len2 - 1 - j] - '0';
-			int sum = d1 * d2 + res[len - 1 - (i + j)] + carry;
-
+			d2 = num2[len2 - 1 - j] - '0';
+			sum = d1 * d2 + res[len - 1 - (i + j)] + carry;
 			res[len - 1 - (i + j)] = sum % 10;
 			carry = sum / 10;
 		}
 		res[len - 1 - (i + j)] += carry;
 	}
 
+	/* Skip leading zeros */
 	i = 0;
 	while (i < len - 1 && res[i] == 0)
 		i++;
@@ -84,19 +82,25 @@ void multiply_and_print(char *num1, char *num2)
 }
 
 /**
- * main - Entry point for program
- * @argc: Number of arguments
- * @argv: Array of argument strings
+ * main - Entry point for the multiplication program
+ * @argc: Number of command-line arguments
+ * @argv: Array of strings (arguments)
  *
- * Return: 0 on success, 98 on error
+ * Return: 0 on success, 98 on failure
  */
 int main(int argc, char **argv)
 {
 	if (argc != 3)
-		print_error();
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
 	if (!is_digit_str(argv[1]) || !is_digit_str(argv[2]))
-		print_error();
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
 	if ((argv[1][0] == '0' && argv[1][1] == '\0') ||
 	    (argv[2][0] == '0' && argv[2][1] == '\0'))
@@ -107,6 +111,5 @@ int main(int argc, char **argv)
 	}
 
 	multiply_and_print(argv[1], argv[2]);
-
 	return (0);
 }
