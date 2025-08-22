@@ -1,115 +1,110 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include <stdio.h>
+
+int _isdigit(char *s);
+void _error(void);
+int _strlen(char *s);
+void multiply(char *num1, char *num2);
 
 /**
- * free_and_exit - Frees allocated memory if present, then exits with status 98
- * @ptr: Pointer to free (can be NULL)
+ * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
  *
- * Return: Nothing (program exits)
+ * Return: 0 if success
  */
-void free_and_exit(int *ptr)
+int main(int argc, char *argv[])
 {
-	if (ptr != NULL)
-		free(ptr);
-	printf("Error\n");
-	exit(98);
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
+		_error();
+
+	multiply(argv[1], argv[2]);
+	return (0);
 }
 
 /**
- * is_digit_str - Checks if a string is only composed of digits
- * @s: String to check
+ * _isdigit - checks if a string is composed only of digits
+ * @s: string
  *
- * Return: 1 if string is valid, 0 otherwise
+ * Return: 1 if all digits, 0 otherwise
  */
-int is_digit_str(char *s)
+int _isdigit(char *s)
 {
-	if (!s || *s == '\0')
-		return (0);
-	while (*s)
+	int i = 0;
+
+	while (s[i])
 	{
-		if (!isdigit(*s))
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		s++;
+		i++;
 	}
 	return (1);
 }
 
 /**
- * multiply_and_print - Multiplies two large positive integers
- * @num1: First number as string
- * @num2: Second number as string
+ * _strlen - returns string length
+ * @s: string
  *
- * Return: Nothing
+ * Return: length
  */
-void multiply_and_print(char *num1, char *num2)
+int _strlen(char *s)
 {
-	size_t len1 = strlen(num1), len2 = strlen(num2);
-	size_t len = len1 + len2;
-	int *res, d1, d2, carry, sum;
-	size_t i, j;
+	int i = 0;
 
-	res = calloc(len, sizeof(int));
-	if (res == NULL)
-		free_and_exit(NULL);
-
-	for (i = 0; i < len1; i++)
-	{
-		d1 = num1[len1 - 1 - i] - '0';
-		carry = 0;
-		for (j = 0; j < len2; j++)
-		{
-			d2 = num2[len2 - 1 - j] - '0';
-			sum = d1 * d2 + res[len - 1 - (i + j)] + carry;
-			res[len - 1 - (i + j)] = sum % 10;
-			carry = sum / 10;
-		}
-		res[len - 1 - (i + j)] += carry;
-	}
-
-	/* Skip leading zeros */
-	i = 0;
-	while (i < len - 1 && res[i] == 0)
+	while (s[i])
 		i++;
-
-	for (; i < len; i++)
-		_putchar(res[i] + '0');
-	_putchar('\n');
-
-	free(res);
+	return (i);
 }
 
 /**
- * main - Entry point for the multiplication program
- * @argc: Number of command-line arguments
- * @argv: Array of strings (arguments)
- *
- * Return: 0 on success, 98 on failure
+ * _error - prints error and exits with status 98
  */
-int main(int argc, char **argv)
+void _error(void)
 {
-	if (argc != 3)
-	{
-		printf("Error\n");
+	printf("Error\n");
+	exit(98);
+}
+
+/**
+ * multiply - multiplies two numbers given as strings
+ * @num1: first number
+ * @num2: second number
+ */
+void multiply(char *num1, char *num2)
+{
+	int len1 = _strlen(num1), len2 = _strlen(num2);
+	int *res, i, j, carry, n1, n2, sum, start;
+
+	res = calloc(len1 + len2, sizeof(int));
+	if (!res)
 		exit(98);
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		n1 = num1[i] - '0';
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			n2 = num2[j] - '0';
+			sum = n1 * n2 + res[i + j + 1] + carry;
+			carry = sum / 10;
+			res[i + j + 1] = sum % 10;
+		}
+		res[i + j + 1] += carry;
 	}
 
-	if (!is_digit_str(argv[1]) || !is_digit_str(argv[2]))
-	{
-		printf("Error\n");
-		exit(98);
-	}
+	start = 0;
+	while (start < (len1 + len2) && res[start] == 0)
+		start++;
 
-	if ((argv[1][0] == '0' && argv[1][1] == '\0') ||
-	    (argv[2][0] == '0' && argv[2][1] == '\0'))
-	{
+	if (start == len1 + len2)
 		_putchar('0');
-		_putchar('\n');
-		return (0);
+	else
+	{
+		for (; start < len1 + len2; start++)
+			_putchar(res[start] + '0');
 	}
-
-	multiply_and_print(argv[1], argv[2]);
-	return (0);
+	_putchar('\n');
+	free(res);
 }
