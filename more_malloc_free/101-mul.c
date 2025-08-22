@@ -1,35 +1,14 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
-
-int _isdigit(char *s);
-void _error(void);
-int _strlen(char *s);
-void multiply(char *num1, char *num2);
+#include <stdlib.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vector
+ * is_digit - checks if a string contains only digits
+ * @s: string to check
  *
- * Return: 0 if success
+ * Return: 1 if only digits, 0 otherwise
  */
-int main(int argc, char *argv[])
-{
-	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-		_error();
-
-	multiply(argv[1], argv[2]);
-	return (0);
-}
-
-/**
- * _isdigit - checks if a string is composed only of digits
- * @s: string
- *
- * Return: 1 if all digits, 0 otherwise
- */
-int _isdigit(char *s)
+int is_digit(char *s)
 {
 	int i = 0;
 
@@ -43,7 +22,7 @@ int _isdigit(char *s)
 }
 
 /**
- * _strlen - returns string length
+ * _strlen - returns the length of a string
  * @s: string
  *
  * Return: length
@@ -52,59 +31,67 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (s[i])
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }
 
 /**
- * _error - prints error and exits with status 98
+ * errors - handles errors for main
  */
-void _error(void)
+void errors(void)
 {
 	printf("Error\n");
 	exit(98);
 }
 
 /**
- * multiply - multiplies two numbers given as strings
- * @num1: first number
- * @num2: second number
+ * main - multiplies two positive numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: always 0 (Success)
  */
-void multiply(char *num1, char *num2)
+int main(int argc, char *argv[])
 {
-	int len1 = _strlen(num1), len2 = _strlen(num2);
-	int *res, i, j, carry, n1, n2, sum, start;
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	res = calloc(len1 + len2, sizeof(int));
-	if (!res)
-		exit(98);
-
-	for (i = len1 - 1; i >= 0; i--)
+	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+		errors();
+	s1 = argv[1], s2 = argv[2];
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i < len; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
+		digit1 = s1[len1] - '0';
 		carry = 0;
-		n1 = num1[i] - '0';
-		for (j = len2 - 1; j >= 0; j--)
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 		{
-			n2 = num2[j] - '0';
-			sum = n1 * n2 + res[i + j + 1] + carry;
-			carry = sum / 10;
-			res[i + j + 1] = sum % 10;
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
 		}
-		res[i + j + 1] += carry;
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-
-	start = 0;
-	while (start < (len1 + len2) && res[start] == 0)
-		start++;
-
-	if (start == len1 + len2)
-		_putchar('0');
-	else
+	for (i = 0; i < len - 1; i++)
 	{
-		for (; start < len1 + len2; start++)
-			_putchar(res[start] + '0');
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
 	}
+	if (!a)
+		_putchar('0');
 	_putchar('\n');
-	free(res);
+	free(result);
+	return (0);
 }
