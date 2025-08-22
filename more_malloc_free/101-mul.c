@@ -1,31 +1,38 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
+
+int _isdigit(char *s);
+void _error(void);
+int _strlen(char *s);
+void multiply(char *num1, char *num2);
 
 /**
- * _strlen - get string length
- * @s: string
- * Return: length
+ * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 if success
  */
-static int _strlen(char *s)
+int main(int argc, char *argv[])
 {
-	int l = 0;
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
+		_error();
 
-	while (s && s[l])
-		l++;
-	return (l);
+	multiply(argv[1], argv[2]);
+	return (0);
 }
 
 /**
- * _isdigit_str - 1 if only digits, else 0
+ * _isdigit - checks if a string is composed only of digits
  * @s: string
- * Return: 1 if digits only, 0 otherwise
+ *
+ * Return: 1 if all digits, 0 otherwise
  */
-static int _isdigit_str(char *s)
+int _isdigit(char *s)
 {
 	int i = 0;
 
-	if (!s || !s[0])
-		return (0);
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
@@ -36,118 +43,68 @@ static int _isdigit_str(char *s)
 }
 
 /**
- * _puts - print a string using _putchar
+ * _strlen - returns string length
  * @s: string
+ *
+ * Return: length
  */
-static void _puts(char *s)
+int _strlen(char *s)
 {
 	int i = 0;
 
 	while (s[i])
-	{
-		_putchar(s[i]);
 		i++;
-	}
+	return (i);
 }
 
 /**
- * error_exit - print "Error" and exit 98
+ * _error - prints error and exits with status 98
  */
-static void error_exit(void)
+void _error(void)
 {
-	_puts("Error\n");
+	printf("Error\n");
 	exit(98);
 }
 
 /**
- * print_zero_nl - print "0\n"
+ * multiply - multiplies two numbers given as strings
+ * @num1: first number
+ * @num2: second number
  */
-static void print_zero_nl(void)
+void multiply(char *num1, char *num2)
 {
-	_putchar('0');
-	_putchar('\n');
-}
+	int len1 = _strlen(num1), len2 = _strlen(num2);
+	int *res, i, j, carry, n1, n2, sum, start;
 
-/**
- * mul_print - multiply two positive integer strings and print
- * @a: first number (digits only)
- * @b: second number (digits only)
- */
-static void mul_print(char *a, char *b)
-{
-	int len1 = _strlen(a), len2 = _strlen(b);
-	int n = len1 + len2, i, j, start = 0;
-	int *res;
-
-	/* quick zero checks */
-	while (start < len1 && a[start] == '0')
-		start++;
-	if (start == len1)
-	{
-		print_zero_nl();
-		return;
-	}
-	start = 0;
-	while (start < len2 && b[start] == '0')
-		start++;
-	if (start == len2)
-	{
-		print_zero_nl();
-		return;
-	}
-
-	res = (int *)malloc(sizeof(int) * n);
+	res = calloc(len1 + len2, sizeof(int));
 	if (!res)
-		error_exit();
-
-	for (i = 0; i < n; i++)
-		res[i] = 0;
+		exit(98);
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
-		int da = a[i] - '0';
-
+		carry = 0;
+		n1 = num1[i] - '0';
 		for (j = len2 - 1; j >= 0; j--)
 		{
-			int db = b[j] - '0';
-			int pos = i + j + 1;
-			int sum = da * db + res[pos];
-
-			res[pos] = sum % 10;
-			res[pos - 1] += sum / 10;
+			n2 = num2[j] - '0';
+			sum = n1 * n2 + res[i + j + 1] + carry;
+			carry = sum / 10;
+			res[i + j + 1] = sum % 10;
 		}
+		res[i + j + 1] += carry;
 	}
 
 	start = 0;
-	while (start < n && res[start] == 0)
+	while (start < (len1 + len2) && res[start] == 0)
 		start++;
 
-	if (start == n)
+	if (start == len1 + len2)
+		_putchar('0');
+	else
 	{
-		print_zero_nl();
-		free(res);
-		return;
+		for (; start < len1 + len2; start++)
+			_putchar(res[start] + '0');
 	}
-	for (i = start; i < n; i++)
-		_putchar(res[i] + '0');
 	_putchar('\n');
-
 	free(res);
-}
-
-/**
- * main - multiply two positive numbers
- * @ac: arg count
- * @av: arg vector
- * Return: 0 on success (exits 98 on error)
- */
-int main(int ac, char **av)
-{
-	if (ac != 3)
-		error_exit();
-	if (!_isdigit_str(av[1]) || !_isdigit_str(av[2]))
-		error_exit();
-
-	mul_print(av[1], av[2]);
-	return (0);
 }
