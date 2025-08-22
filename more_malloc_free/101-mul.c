@@ -1,97 +1,142 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * is_digit - checks if a string contains only digits
- * @s: string to check
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
- * Return: 1 if only digits, 0 otherwise
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int is_digit(char *s)
+int _putchar(char c)
 {
-	int i = 0;
+	return (write(1, &c, 1));
+}
 
-	while (s[i])
+/**
+ * _isdigit - checks if a string contains only digits.
+ * @s: The string to check.
+ *
+ * Return: 1 if all characters are digits, 0 otherwise.
+ */
+int _isdigit(char *s)
+{
+	if (*s == '0')
+		s++;
+	while (*s)
 	{
-		if (s[i] < '0' || s[i] > '9')
+		if (*s < '0' || *s > '9')
 			return (0);
-		i++;
+		s++;
 	}
 	return (1);
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: string
+ * _strlen - returns the length of a string.
+ * @s: The string to get the length of.
  *
- * Return: length
+ * Return: The length of the string.
  */
 int _strlen(char *s)
 {
+	int len = 0;
+
+	while (*s++)
+		len++;
+	return (len);
+}
+
+/**
+ * create_x_array - creates an array of chars and initializes it with 'x'.
+ * @size: The size of the array to create.
+ *
+ * Return: A pointer to the newly created array.
+ */
+void *create_x_array(int size)
+{
+	char *array;
 	int i = 0;
 
-	while (s[i] != '\0')
+	array = malloc(sizeof(char) * size);
+	if (!array)
+		return (NULL);
+	while (i < size)
+	{
+		array[i] = 'x';
 		i++;
-	return (i);
+	}
+	return (array);
 }
 
 /**
- * errors - handles errors for main
- */
-void errors(void)
-{
-	printf("Error\n");
-	exit(98);
-}
-
-/**
- * main - multiplies two positive numbers
- * @argc: number of arguments
- * @argv: array of arguments
+ * main - multiplies two positive numbers.
+ * @argc: The number of arguments.
+ * @argv: The array of arguments.
  *
- * Return: always 0 (Success)
+ * Return: 0 on success, 98 on failure.
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	char *s1, *s2;
-	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
+	char *num1, *num2, *res;
+	int len1, len2, total_len, i, j, k, n1, n2, mul, carry;
 
-	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
-		errors();
-	s1 = argv[1], s2 = argv[2];
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
-	len = len1 + len2 + 1;
-	result = malloc(sizeof(int) * len);
-	if (!result)
-		return (1);
-	for (i = 0; i < len; i++)
-		result[i] = 0;
-	for (len1 = len1 - 1; len1 >= 0; len1--)
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
-		digit1 = s1[len1] - '0';
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
+		exit(98);
+	}
+
+	num1 = argv[1];
+	num2 = argv[2];
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
+	total_len = len1 + len2;
+
+	res = create_x_array(total_len);
+	if (!res)
+	{
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
+		exit(98);
+	}
+
+	for (i = 0; i < total_len; i++)
+		res[i] = '0';
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		n1 = num1[i] - '0';
 		carry = 0;
-		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		for (j = len2 - 1; j >= 0; j--)
 		{
-			digit2 = s2[len2] - '0';
-			carry += result[len1 + len2 + 1] + (digit1 * digit2);
-			result[len1 + len2 + 1] = carry % 10;
-			carry /= 10;
+			n2 = num2[j] - '0';
+			mul = n1 * n2 + (res[i + j + 1] - '0') + carry;
+			res[i + j + 1] = (mul % 10) + '0';
+			carry = mul / 10;
 		}
-		if (carry > 0)
-			result[len1 + len2 + 1] += carry;
+		res[i + j + 1] = (carry % 10) + '0';
 	}
-	for (i = 0; i < len - 1; i++)
+
+	k = 0;
+	while (res[k] == '0' && k < total_len - 1)
+		k++;
+
+	while (k < total_len)
 	{
-		if (result[i])
-			a = 1;
-		if (a)
-			_putchar(result[i] + '0');
+		_putchar(res[k]);
+		k++;
 	}
-	if (!a)
-		_putchar('0');
 	_putchar('\n');
-	free(result);
+
+	free(res);
 	return (0);
 }

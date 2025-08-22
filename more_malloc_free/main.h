@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdlib.h>
+#include <unistd.h>
+
 void *malloc_checked(unsigned int b);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
@@ -11,5 +14,8 @@ void print_error(void);
 int is_digit_str(char *s);
 void multiply_and_print(char *num1, char *num2);
 void free_and_exit(int *ptr);
+void *create_x_array(int size);
+char *_memcpy(char *dest, char *src, int n);
+int _strlen(char *s);
 
 #endif 
