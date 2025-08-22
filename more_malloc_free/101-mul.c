@@ -1,27 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-
-int _isdigit(char *s);
-int _strlen(char *s);
-void _error(int *res);
-void multiply(char *num1, char *num2);
-
-/**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vector
- *
- * Return: 0 on success
- */
-int main(int argc, char *argv[])
-{
-	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-		_error(NULL);
-
-	multiply(argv[1], argv[2]);
-	return (0);
-}
+#include <unistd.h>
 
 /**
  * _isdigit - checks if a string is composed only of digits
@@ -65,7 +44,7 @@ void _error(int *res)
 {
 	if (res)
 		free(res);
-	printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(98);
 }
 
@@ -109,4 +88,20 @@ void multiply(char *num1, char *num2)
 
 	_putchar('\n');
 	free(res);
+}
+
+/**
+ * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
+		_error(NULL);
+
+	multiply(argv[1], argv[2]);
+	return (0);
 }
