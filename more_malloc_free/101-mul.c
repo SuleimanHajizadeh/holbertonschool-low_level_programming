@@ -66,9 +66,16 @@ void _error(int *res)
 	if (res)
 		free(res);
 
-	printf("Error\n");
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
+
 	exit(98);
 }
+
 
 /**
  * multiply - multiplies two numbers given as strings
