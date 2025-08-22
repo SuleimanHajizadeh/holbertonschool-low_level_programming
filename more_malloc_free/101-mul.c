@@ -1,118 +1,113 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 
 /**
- * print_error - prints "Error" and exits with status 98
+ * _strlen - returns length of a string
+ * @s: string
+ * Return: length
  */
-void print_error(void)
+static int _strlen(char *s)
 {
-	printf("Error\n");
-	exit(98);
+	int l = 0;
+
+	while (s && s[l])
+		l++;
+	return (l);
 }
 
 /**
- * is_digit_str - check if a string is composed only of digits
- * @s: input string
+ * _isdigit_str - checks if s contains only digits
+ * @s: string
  * Return: 1 if only digits, 0 otherwise
  */
-int is_digit_str(char *s)
+static int _isdigit_str(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i]; i++)
+	if (!s || !s[0])
+		return (0);
+	while (s[i])
 	{
-		if (!isdigit((unsigned char)s[i]))
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
+		i++;
 	}
 	return (1);
 }
 
 /**
- * multiply - multiply two numbers represented as strings
- * @num1: first number (string)
- * @num2: second number (string)
- * Return: result as a string (caller must free)
+ * _puts - print a C-string with _putchar
+ * @s: string
  */
-char *multiply(char *num1, char *num2)
+static void _puts(char *s)
 {
-	int len1 = strlen(num1);
-	int len2 = strlen(num2);
-	int *res = calloc(len1 + len2, sizeof(int));
-	char *result;
-	int i, j, carry, prod, k, start;
+	int i = 0;
 
-	if (!res)
-		return (NULL);
-
-	/* Perform multiplication like on paper */
-	for (i = len1 - 1; i >= 0; i--)
+	while (s[i])
 	{
-		if (!isdigit((unsigned char)num1[i]))
-			return (free(res), NULL);
-		for (j = len2 - 1; j >= 0; j--)
-		{
-			if (!isdigit((unsigned char)num2[j]))
-				return (free(res), NULL);
-			prod = (num1[i] - '0') * (num2[j] - '0');
-			carry = prod + res[i + j + 1];
-			res[i + j + 1] = carry % 10;
-			res[i + j] += carry / 10;
-		}
+		_putchar(s[i]);
+		i++;
 	}
-
-	/* Skip leading zeros */
-	start = 0;
-	while (start < len1 + len2 && res[start] == 0)
-		start++;
-
-	/* If result is 0 */
-	if (start == len1 + len2)
-	{
-		result = malloc(2);
-		if (!result)
-			return (free(res), NULL);
-		result[0] = '0';
-		result[1] = '\0';
-		free(res);
-		return (result);
-	}
-
-	/* Convert int array to string */
-	result = malloc(len1 + len2 - start + 1);
-	if (!result)
-		return (free(res), NULL);
-
-	for (k = 0; start < len1 + len2; start++, k++)
-		result[k] = res[start] + '0';
-	result[k] = '\0';
-
-	free(res);
-	return (result);
 }
 
 /**
- * main - entry point
- * @argc: argument count
- * @argv: argument vector
- * Return: 0 on success
+ * error_exit - print "Error" and exit 98
  */
-int main(int argc, char **argv)
+static void error_exit(void)
 {
-	char *res;
-
-	if (argc != 3)
-		print_error();
-	if (!is_digit_str(argv[1]) || !is_digit_str(argv[2]))
-		print_error();
-
-	res = multiply(argv[1], argv[2]);
-	if (!res)
-		print_error();
-
-	printf("%s\n", res);
-	free(res);
-	return (0);
+	_puts("Error\n");
+	exit(98);
 }
+
+/**
+ * print_zero_nl - prints "0\n"
+ */
+static void print_zero_nl(void)
+{
+	_putchar('0');
+	_putchar('\n');
+}
+
+/**
+ * mul_print - multiply two positive integer strings and print result
+ * @a: num1 (digits only)
+ * @b: num2 (digits only)
+ *
+ * Uses long multiplication into an int array, then prints digits with _putchar.
+ * Frees all allocated memory before returning.
+ */
+static void mul_print(char *a, char *b)
+{
+	int len1 = _strlen(a), len2 = _strlen(b);
+	int i, j, n = len1 + len2, start = 0;
+	int *res;
+
+	/* handle leading zeros quickly */
+	while (start < len1 && a[start] == '0')
+		start++;
+	if (start == len1) /* a is zero */
+	{
+		print_zero_nl();
+		return;
+	}
+	start = 0;
+	while (start < len2 && b[start] == '0')
+		start++;
+	if (start == len2) /* b is zero */
+	{
+		print_zero_nl();
+		return;
+	}
+
+	res = (int *)malloc(sizeof(int) * n);
+	if (!res)
+		error_exit();
+
+	/* zero-initialize result buffer */
+	for (i = 0; i < n; i++)
+		res[i] = 0;
+
+	/* long multiplication from right to left */
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		int da =
