@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/* Function prototypes */
 int _isdigit(char *s);
 int _strlen(char *s);
 void _error(int *res);
@@ -10,6 +9,10 @@ void multiply(char *num1, char *num2);
 
 /**
  * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -21,7 +24,10 @@ int main(int argc, char *argv[])
 }
 
 /**
- * _isdigit - checks if string contains only digits
+ * _isdigit - checks if a string is composed only of digits
+ * @s: string
+ *
+ * Return: 1 if all digits, 0 otherwise
  */
 int _isdigit(char *s)
 {
@@ -37,6 +43,9 @@ int _isdigit(char *s)
 
 /**
  * _strlen - returns string length
+ * @s: string
+ *
+ * Return: length
  */
 int _strlen(char *s)
 {
@@ -47,18 +56,28 @@ int _strlen(char *s)
 }
 
 /**
- * _error - prints Error and exits
+ * _error - prints Error and exits with status 98
+ * @res: pointer to allocated array, NULL if none
  */
 void _error(int *res)
 {
-    if (res)
-        free(res);
-    printf("Error\n");
-    exit(98);
+	if (res)
+		free(res);
+
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
+
+	exit(98);
 }
 
 /**
  * multiply - multiplies two numbers given as strings
+ * @num1: first number
+ * @num2: second number
  */
 void multiply(char *num1, char *num2)
 {
@@ -87,12 +106,12 @@ void multiply(char *num1, char *num2)
     while (start < len1 + len2 && res[start] == 0)
         start++;
 
-    if (start == len1 + len2)
-        _putchar('0');
-    else
-        for (; start < len1 + len2; start++)
-            _putchar(res[start] + '0');
+	if (start == len1 + len2)
+		_putchar('0');
+	else
+		for (; start < len1 + len2; start++)
+			_putchar(res[start] + '0');
 
-    _putchar('\n');
-    free(res);
+	_putchar('\n');
+	free(res);
 }
