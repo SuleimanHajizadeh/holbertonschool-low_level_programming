@@ -16,5 +16,9 @@ char *_memcpy(char *dest, char *src, int n);
 int _strlen(char *s);
 void print_number(char *num);
 void multiply(char *num1, char *num2);
+int _putchar(char c);
+int is_digit_str(char *s);
+void multiply_and_print(char *num1, char *num2);
+void free_and_exit(int *ptr);
 
 #endif
