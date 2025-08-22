@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* Function prototypes */
 int _isdigit(char *s);
-void _error(void);
+void _error(int *res);
 int _strlen(char *s);
 void multiply(char *num1, char *num2);
+void _puts(char *str);
 
 /**
  * main - multiplies two positive numbers
@@ -17,7 +19,7 @@ void multiply(char *num1, char *num2);
 int main(int argc, char *argv[])
 {
 	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-		_error();
+		_error(NULL);
 
 	multiply(argv[1], argv[2]);
 	return (0);
@@ -59,11 +61,24 @@ int _strlen(char *s)
 
 /**
  * _error - prints error and exits with status 98
+ * @res: pointer to allocated memory to free (can be NULL)
  */
-void _error(void)
+void _error(int *res)
 {
-	printf("Error\n");
+	_puts("Error\n");
+	if (res)
+		free(res);
 	exit(98);
+}
+
+/**
+ * _puts - prints a string to stdout
+ * @str: string
+ */
+void _puts(char *str)
+{
+	while (*str)
+		_putchar(*str++);
 }
 
 /**
@@ -78,7 +93,7 @@ void multiply(char *num1, char *num2)
 
 	res = calloc(len1 + len2, sizeof(int));
 	if (!res)
-		exit(98);
+		_error(NULL);
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
