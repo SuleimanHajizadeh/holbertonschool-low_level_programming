@@ -11,6 +11,7 @@ void multiply(char *num1, char *num2);
  * main - multiplies two positive numbers
  * @argc: argument count
  * @argv: argument vector
+ *
  * Return: 0 on success
  */
 int main(int argc, char *argv[])
