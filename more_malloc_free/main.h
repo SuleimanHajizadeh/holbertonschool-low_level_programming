@@ -10,5 +10,6 @@ int _putchar(char c);
 void print_error(void);
 int is_digit_str(char *s);
 void multiply_and_print(char *num1, char *num2);
+void free_and_exit(int *ptr);
 
 #endif 
