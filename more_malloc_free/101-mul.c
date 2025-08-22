@@ -110,4 +110,53 @@ static void mul_print(char *a, char *b)
 	/* long multiplication from right to left */
 	for (i = len1 - 1; i >= 0; i--)
 	{
-		int da =
+		int da = a[i] - '0';
+
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			int db = b[j] - '0';
+			int pos_low = i + j + 1;
+			int pos_high = i + j;
+			int sum = da * db + res[pos_low];
+
+			res[pos_low] = sum % 10;
+			res[pos_high] += sum / 10;
+		}
+	}
+
+	/* skip leading zeros in result */
+	start = 0;
+	while (start < n && res[start] == 0)
+		start++;
+
+	/* print result digits */
+	if (start == n)
+	{
+		/* should not happen due to earlier zero checks, but safe-guard */
+		print_zero_nl();
+		free(res);
+		return;
+	}
+	for (i = start; i < n; i++)
+		_putchar(res[i] + '0');
+	_putchar('\n');
+
+	free(res);
+}
+
+/**
+ * main - multiply two positive numbers given as strings
+ * @ac: argument count
+ * @av: argument vector
+ * Return: 0 on success, 98 on error (through exit)
+ */
+int main(int ac, char **av)
+{
+	if (ac != 3)
+		error_exit();
+	if (!_isdigit_str(av[1]) || !_isdigit_str(av[2]))
+		error_exit();
+
+	mul_print(av[1], av[2]);
+	return (0);
+}
