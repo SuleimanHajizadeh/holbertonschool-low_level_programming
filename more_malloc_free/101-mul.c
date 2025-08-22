@@ -2,19 +2,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/* Function prototypes */
 int _isdigit(char *s);
-void _error(int *res);
 int _strlen(char *s);
+void _error(int *res);
 void multiply(char *num1, char *num2);
-void _puts(char *str);
 
 /**
  * main - multiplies two positive numbers
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 0 if success
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -60,25 +58,15 @@ int _strlen(char *s)
 }
 
 /**
- * _error - prints error and exits with status 98
- * @res: pointer to allocated memory to free (can be NULL)
+ * _error - prints Error and exits with status 98
+ * @res: pointer to allocated array, NULL if none
  */
 void _error(int *res)
 {
-	_puts("Error\n");
 	if (res)
 		free(res);
+	printf("Error\n");
 	exit(98);
-}
-
-/**
- * _puts - prints a string to stdout
- * @str: string
- */
-void _puts(char *str)
-{
-	while (*str)
-		_putchar(*str++);
 }
 
 /**
@@ -116,10 +104,9 @@ void multiply(char *num1, char *num2)
 	if (start == len1 + len2)
 		_putchar('0');
 	else
-	{
 		for (; start < len1 + len2; start++)
 			_putchar(res[start] + '0');
-	}
+
 	_putchar('\n');
 	free(res);
 }

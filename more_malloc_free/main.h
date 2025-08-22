@@ -17,4 +17,4 @@ int _strlen(char *s);
 void print_number(char *num);
 void multiply(char *num1, char *num2);
 
-#endif 
+#endif
