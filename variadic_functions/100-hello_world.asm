@@ -1,20 +1,16 @@
-; 100-hello_world.asm
-; Prints "Hello, World\n" using the write syscall
+segment .data
+	message db 'Hello, World', 0xa
 
-section .data
-msg     db "Hello, World", 10   ; string + newline
-len     equ $ - msg             ; length of the string
+segment .text
+	global main
 
-section .text
-global _start
+main:
+	mov rdx, 13
+	mov rsi, message
+	mov rdi, 1
+	mov rax, 1
+	syscall
 
-_start:
-    mov rax, 1          ; sys_write
-    mov rdi, 1          ; file descriptor: stdout
-    mov rsi, msg        ; address of the string
-    mov rdx, len        ; length of the string
-    syscall             ; invoke system call
-
-    mov rax, 60         ; sys_exit
-    xor rdi, rdi        ; exit code 0
-    syscall
+	mov rax, 60
+	mov rdi, 0
+	syscall
