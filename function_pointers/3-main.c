@@ -2,7 +2,13 @@
 #include <stdlib.h>
 #include "3-calc.h"
 
-/* Main program: performs simple operations */
+/**
+ * main - performs simple operations given as command line arguments
+ * @argc: number of arguments
+ * @argv: array of argument strings
+ *
+ * Return: 0 on success, exits with 98, 99, or 100 on error
+ */
 int main(int argc, char *argv[])
 {
 	int num1, num2, result;
