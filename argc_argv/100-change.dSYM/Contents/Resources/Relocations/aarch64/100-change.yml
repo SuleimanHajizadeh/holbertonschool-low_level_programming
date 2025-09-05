@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/macbookairm2/Documents/GitHub/holbertonschool-low_level_programming/argc_argv/100-change'
+relocations:     []
+...
