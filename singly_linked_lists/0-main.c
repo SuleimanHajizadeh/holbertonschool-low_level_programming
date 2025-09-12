@@ -6,29 +6,35 @@
 /**
  * main - check the code
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: Always 0.
  */
 int main(void)
 {
-    dlistint_t *head;
-    dlistint_t *new;
-    dlistint_t hello = {8, NULL, NULL};
+    list_t *head;
+    list_t *new;
+    list_t hello = {"World", 5, NULL};
     size_t n;
 
     head = &hello;
-    new = malloc(sizeof(dlistint_t));
+    new = malloc(sizeof(list_t));
     if (new == NULL)
     {
-        dprintf(2, "Error: Can't malloc\n");
-        return (EXIT_FAILURE);
+        printf("Error\n");
+        return (1);
     }
-    new->n = 9;
-    head->prev = new;
+    new->str = strdup("Hello");
+    new->len = 5;
     new->next = head;
-    new->prev = NULL;
     head = new;
-    n = print_dlistint(head);
+    n = print_list(head);
     printf("-> %lu elements\n", n);
+
+    printf("\n");
+    free(new->str);
+    new->str = NULL;
+    n = print_list(head);
+    printf("-> %lu elements\n", n);
+
     free(new);
-    return (EXIT_SUCCESS);
+    return (0);
 }
