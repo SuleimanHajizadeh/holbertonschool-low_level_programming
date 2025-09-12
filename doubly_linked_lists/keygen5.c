@@ -1,3 +1,4 @@
+/* keygen5.c */
 #include <stdio.h>
 #include <string.h>
 
@@ -11,10 +12,10 @@ int main(int argc, char *argv[])
 
     len = strlen(argv[1]);
     for (i = 0; i < len; i++)
-        key[i] = argv[1][i] + len; // example transformation
+        key[i] = argv[1][i] + len;  /* Example logic from original keygen */
 
     key[len] = '\0';
 
-    printf("%s", key);  // <-- no \n here
+    printf("%s", key);  // NO newline!
     return 0;
 }
