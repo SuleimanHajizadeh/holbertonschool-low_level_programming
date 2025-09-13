@@ -1,18 +1,14 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-#define BUFFER_SIZE 1024
 
 /**
- * error_exit - prints an error message and exits with a given code
- * @code: exit code
- * @msg: error message format string
- * @arg: argument for the format string
+ * error_exit - prints an error message to stderr and exits with a code
+ * @code: exit status
+ * @msg: format string for error message
+ * @filename: file name related to the error
  */
-void error_exit(int code, const char *msg, const char *arg)
+void error_exit(int code, const char *msg, const char *filename)
 {
-	dprintf(STDERR_FILENO, msg, arg);
+	dprintf(STDERR_FILENO, msg, filename);
 	exit(code);
 }
 
@@ -21,7 +17,7 @@ void error_exit(int code, const char *msg, const char *arg)
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 0 on success, exits on failure with given codes
+ * Return: 0 on success, or exit with error codes
  */
 int main(int argc, char *argv[])
 {
@@ -29,7 +25,10 @@ int main(int argc, char *argv[])
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_exit(97, "Usage: cp file_from file_to\n", "");
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
@@ -42,8 +41,18 @@ int main(int argc, char *argv[])
 		error_exit(99, "Error: Can't write to %s\n", argv[2]);
 	}
 
-	while ((r = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while (1)
 	{
+		r = read(fd_from, buffer, BUFFER_SIZE);
+		if (r == -1)
+		{
+			close(fd_from);
+			close(fd_to);
+			error_exit(98, "Error: Can't read from file %s\n", argv[1]);
+		}
+		if (r == 0)
+			break;
+
 		w = write(fd_to, buffer, r);
 		if (w == -1 || w != r)
 		{
@@ -53,18 +62,11 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (r == -1)
-	{
-		close(fd_from);
-		close(fd_to);
-		error_exit(98, "Error: Can't read from file %s\n", argv[1]);
-	}
-
 	if (close(fd_from) == -1)
-		error_exit(100, "Error: Can't close fd %d\n", argv[1]);
+		error_exit(100, "Error: Can't close fd %s\n", argv[1]);
 
 	if (close(fd_to) == -1)
-		error_exit(100, "Error: Can't close fd %d\n", argv[2]);
+		error_exit(100, "Error: Can't close fd %s\n", argv[2]);
 
 	return (0);
 }
