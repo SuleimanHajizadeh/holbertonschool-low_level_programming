@@ -1,4 +1,23 @@
+/*
+ * File: 100-elf_header.c
+ */
 
+#include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_error - print error message and exit with code 98
+ */
+void print_error(const char *msg)
+{
+	dprintf(STDERR_FILENO, "Error: %s\n", msg);
+	exit(98);
+}
 
 /**
  * print_magic - prints ELF magic bytes
@@ -25,9 +44,12 @@ const char *get_osabi(unsigned char o)
 	case ELFOSABI_LINUX: return "UNIX - Linux";
 	case ELFOSABI_SOLARIS: return "UNIX - Solaris";
 	case ELFOSABI_FREEBSD: return "UNIX - FreeBSD";
-	default: static char buf[32];
-		snprintf(buf, sizeof(buf), "<unknown: %x>", o);
-		return buf;
+	default:
+		{
+			static char buf[32];
+			snprintf(buf, sizeof(buf), "<unknown: %x>", o);
+			return buf;
+		}
 	}
 }
 
@@ -43,9 +65,12 @@ const char *get_type(uint16_t t)
 	case ET_EXEC: return "EXEC (Executable file)";
 	case ET_DYN: return "DYN (Shared object file)";
 	case ET_CORE: return "CORE (Core file)";
-	default: static char buf[32];
-		snprintf(buf, sizeof(buf), "<unknown: %x>", t);
-		return buf;
+	default:
+		{
+			static char buf[32];
+			snprintf(buf, sizeof(buf), "<unknown: %x>", t);
+			return buf;
+		}
 	}
 }
 
