@@ -3,13 +3,15 @@
  */
 
 #include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * print_error - Print error message and exit with code 98
+ * print_error - print error message and exit with code 98
  */
 void print_error(const char *msg)
 {
@@ -18,7 +20,7 @@ void print_error(const char *msg)
 }
 
 /**
- * print_magic - Prints ELF magic numbers
+ * print_magic - prints ELF magic bytes
  */
 void print_magic(unsigned char *e_ident)
 {
@@ -30,7 +32,7 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
- * get_osabi - Returns a string for OS/ABI
+ * get_osabi - returns a string for OS/ABI
  */
 const char *get_osabi(unsigned char o)
 {
@@ -52,7 +54,7 @@ const char *get_osabi(unsigned char o)
 }
 
 /**
- * get_type - Returns a string describing ELF type
+ * get_type - returns a string for ELF file type
  */
 const char *get_type(uint16_t t)
 {
@@ -73,42 +75,13 @@ const char *get_type(uint16_t t)
 }
 
 /**
- * swap16, swap32, swap64 - Byte swap functions for big-endian support
- */
-uint16_t swap16(uint16_t val)
-{
-	return (val >> 8) | (val << 8);
-}
-
-uint32_t swap32(uint32_t val)
-{
-	return ((val >> 24) & 0xff) |
-	       ((val >> 8) & 0xff00) |
-	       ((val << 8) & 0xff0000) |
-	       ((val << 24) & 0xff000000);
-}
-
-uint64_t swap64(uint64_t val)
-{
-	return ((val >> 56) & 0xff) |
-	       ((val >> 40) & 0xff00) |
-	       ((val >> 24) & 0xff0000) |
-	       ((val >> 8) & 0xff000000) |
-	       ((val << 8) & 0xff00000000ULL) |
-	       ((val << 24) & 0xff0000000000ULL) |
-	       ((val << 40) & 0xff000000000000ULL) |
-	       ((val << 56) & 0xff00000000000000ULL);
-}
-
-/**
- * main - Displays ELF header information
+ * main - displays the ELF header info
  */
 int main(int argc, char *argv[])
 {
 	int fd;
 	ssize_t r;
 	unsigned char e_ident[EI_NIDENT];
-	int is_big_endian;
 
 	if (argc != 2)
 	{
@@ -127,14 +100,13 @@ int main(int argc, char *argv[])
 		print_error("Can't read ELF header");
 	}
 
+	/* Verify ELF magic */
 	if (e_ident[EI_MAG0] != ELFMAG0 || e_ident[EI_MAG1] != ELFMAG1 ||
 	    e_ident[EI_MAG2] != ELFMAG2 || e_ident[EI_MAG3] != ELFMAG3)
 	{
 		close(fd);
 		print_error("Not an ELF file");
 	}
-
-	is_big_endian = (e_ident[EI_DATA] == ELFDATA2MSB);
 
 	printf("ELF Header:\n");
 	print_magic(e_ident);
@@ -167,7 +139,7 @@ int main(int argc, char *argv[])
 	printf("  OS/ABI:                            %s\n", get_osabi(e_ident[EI_OSABI]));
 	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
 
-	/* Read full header */
+	/* Reset file to start to read full header */
 	if (lseek(fd, 0, SEEK_SET) == -1)
 		print_error("Can't seek file");
 
@@ -178,11 +150,8 @@ int main(int argc, char *argv[])
 		if (r != sizeof(Elf32_Ehdr))
 			print_error("Can't read ELF header");
 
-		uint16_t e_type = is_big_endian ? swap16(h32.e_type) : h32.e_type;
-		uint32_t e_entry = is_big_endian ? swap32(h32.e_entry) : h32.e_entry;
-
-		printf("  Type:                              %s\n", get_type(e_type));
-		printf("  Entry point address:               0x%x\n", e_entry);
+		printf("  Type:                              %s\n", get_type(h32.e_type));
+		printf("  Entry point address:               0x%x\n", h32.e_entry);
 	}
 	else
 	{
@@ -191,11 +160,8 @@ int main(int argc, char *argv[])
 		if (r != sizeof(Elf64_Ehdr))
 			print_error("Can't read ELF header");
 
-		uint16_t e_type = is_big_endian ? swap16(h64.e_type) : h64.e_type;
-		uint64_t e_entry = is_big_endian ? swap64(h64.e_entry) : h64.e_entry;
-
-		printf("  Type:                              %s\n", get_type(e_type));
-		printf("  Entry point address:               0x%lx\n", e_entry);
+		printf("  Type:                              %s\n", get_type(h64.e_type));
+		printf("  Entry point address:               0x%lx\n", h64.e_entry);
 	}
 
 	if (close(fd) == -1)
