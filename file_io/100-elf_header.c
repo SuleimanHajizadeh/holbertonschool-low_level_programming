@@ -1,23 +1,4 @@
-/*
- * File: 100-elf_header.c
- */
 
-#include <elf.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-/**
- * print_error - print error message and exit with code 98
- */
-void print_error(const char *msg)
-{
-	dprintf(STDERR_FILENO, "Error: %s\n", msg);
-	exit(98);
-}
 
 /**
  * print_magic - prints ELF magic bytes
