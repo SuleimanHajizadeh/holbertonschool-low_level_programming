@@ -21,14 +21,14 @@
 
 
 <h3 align="center">
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#eye-about">About</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#computer-requirements">Requirements</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#keyboard-more-info">More Info</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#mag_right-resources">Resources</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/singly_linked_lists#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#eye-about">About</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#computer-requirements">Requirements</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#keyboard-more-info">More Info</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#mag_right-resources">Resources</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/singly_linked_lists#octocat-license">License</a>
 </h3>
 
 ---
@@ -213,7 +213,7 @@ typedef struct list_s
 
 <br>
 
-<img src="https://img.shields.io/badge/Razika%20Bengana-darkblue" alt="Razika Bengana" width="120">
+<img src="https://img.shields.io/badge/Suleiman%20Hajizadeh-darkblue" alt="Suleiman Hajizadeh" width="120">
 
 <br>
 <br>
@@ -231,4 +231,4 @@ typedef struct list_s
 
 ---
 
-<p align="center"><br>2022</p>
+<p align="center"><br>2025</p>
