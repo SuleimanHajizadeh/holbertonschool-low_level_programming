@@ -21,14 +21,14 @@
 
 
 <h3 align="center">
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#eye-about">About</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#computer-requirements">Requirements</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#keyboard-more-info">More Info</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#mag_right-resources">Resources</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/search_algorithms#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#eye-about">About</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#computer-requirements">Requirements</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#keyboard-more-info">More Info</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#mag_right-resources">Resources</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/search_algorithms#octocat-license">License</a>
 </h3>
 
 ---
@@ -215,7 +215,7 @@ Please use this format:
 
 <br>
 
-<img src="https://img.shields.io/badge/Razika%20Bengana-darkblue" alt="Razika Bengana" width="120">
+<img src="https://img.shields.io/badge/Suleiman%20Hajizadeh-darkblue" alt="Suleiman Hajizadeh" width="120">
 
 <br>
 <br>
@@ -233,4 +233,4 @@ Please use this format:
 
 ---
 
-<p align="center"><br>2022</p>
+<p align="center"><br>2025</p>
