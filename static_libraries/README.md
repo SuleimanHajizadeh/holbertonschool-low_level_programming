@@ -21,14 +21,14 @@
 
 
 <h3 align="center">
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#eye-about">About</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#computer-requirements">Requirements</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#keyboard-more-info">More Info</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#mag_right-resources">Resources</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/static_libraries#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#eye-about">About</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#computer-requirements">Requirements</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#keyboard-more-info">More Info</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#mag_right-resources">Resources</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/static_libraries#octocat-license">License</a>
 </h3>
 
 ---
@@ -208,7 +208,7 @@ Bash
 
 <br>
 
-<img src="https://img.shields.io/badge/Razika%20Bengana-darkblue" alt="Razika Bengana" width="120">
+<img src="https://img.shields.io/badge/Suleiman%20Hajizadeh-darkblue" alt="Suleiman Hajizadeh" width="120">
 
 <br>
 <br>
@@ -226,4 +226,4 @@ Bash
 
 ---
 
-<p align="center"><br>2022</p>
+<p align="center"><br>2025</p>
