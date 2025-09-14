@@ -21,13 +21,13 @@
 
 
 <h3 align="center">
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#eye-about">About</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#computer-requirements">Requirements</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#mag_right-resources">Resources</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/argc_argv#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#eye-about">About</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_argv#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_arg#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_argv#computer-requirements">Requirements</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_argv#mag_right-resources">Resources</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_argv#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/argc_argv#octocat-license">License</a>
 </h3>
 
 ---
@@ -169,7 +169,7 @@ General
 
 <br>
 
-<img src="https://img.shields.io/badge/Razika%20Bengana-darkblue" alt="Razika Bengana" width="120">
+<img src="https://img.shields.io/badge/Suleiman%20Hajizadeh-darkblue" alt="Suleiman Hajizadeh" width="120">
 
 <br>
 <br>
