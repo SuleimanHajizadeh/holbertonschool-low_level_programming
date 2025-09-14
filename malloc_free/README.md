@@ -1,1 +1,0 @@
-this is readme file for C - malloc, free
