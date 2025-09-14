@@ -21,14 +21,14 @@
 
 
 <h3 align="center">
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#eye-about">About</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#computer-requirements">Requirements</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#keyboard-more-info">More Info</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#mag_right-resources">Resources</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/RazikaBengana/holbertonschool-low_level_programming/tree/main/even_more_pointers_arrays_strings#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#eye-about">About</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#computer-requirements">Requirements</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#keyboard-more-info">More Info</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#mag_right-resources">Resources</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/even_more_pointers_arrays_strings#octocat-license">License</a>
 </h3>
 
 ---
@@ -199,7 +199,7 @@ General
 
 <br>
 
-<img src="https://img.shields.io/badge/Razika%20Bengana-darkblue" alt="Razika Bengana" width="120">
+<img src="https://img.shields.io/badge/Suleiman%20Hajizadeh-darkblue" alt="Suleiman Hajizadeh" width="120">
 
 <br>
 <br>
@@ -217,4 +217,4 @@ General
 
 ---
 
-<p align="center"><br>2022</p>
+<p align="center"><br>2025</p>
