@@ -21,13 +21,13 @@
 
 
 <h3 align="center">
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#eye-about">About</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#hammer_and_wrench-tasks">Tasks</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_arg#memo-learning-objectives">Learning Objectives</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#computer-requirements">Requirements</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#mag_right-resources">Resources</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#bust_in_silhouette-authors">Authors</a> •
-<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/argc_argv#octocat-license">License</a>
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#eye-about">About</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#hammer_and_wrench-tasks">Tasks</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_arg#memo-learning-objectives">Learning Objectives</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#computer-requirements">Requirements</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#mag_right-resources">Resources</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#bust_in_silhouette-authors">Authors</a> •
+<a href="https://github.com/SuleimanHajizadeh/holbertonschool-low_level_programming/tree/master/argc_argv#octocat-license">License</a>
 </h3>
 
 ---
