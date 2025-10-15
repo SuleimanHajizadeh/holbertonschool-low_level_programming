@@ -1,124 +1,107 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-/* Function prototypes */
-int _isdigit(char *s);
-int _strlen(char *s);
-void _error(int *res);
-void multiply(char *num1, char *num2);
+int is_digit(char *str);
+void errors(void);
 
 /**
  * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vector
- *
- * Return: 0 on success, exits with 98 on error
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
-		_error(NULL);
+    char *str1, *str2;
+    int length1, length2, length, i, carry, digit1, digit2, *result, a = 0;
 
-	multiply(argv[1], argv[2]);
-	return (0);
+    if (argc != 3)
+        errors();
+
+    str1 = argv[1];
+    str2 = argv[2];
+
+    if (!is_digit(str1) || !is_digit(str2))
+        errors();
+
+    length1 = _strlen(str1);
+    length2 = _strlen(str2);
+    length = length1 + length2 + 1;
+    result = malloc(sizeof(int) * length);
+    if (!result)
+        return (1);
+
+    for (i = 0; i <= length1 + length2; i++)
+        result[i] = 0;
+
+    for (length1 = length1 - 1; length1 >= 0; length1--)
+    {
+        digit1 = str1[length1] - '0';
+        carry = 0;
+        for (length2 = _strlen(str2) - 1; length2 >= 0; length2--)
+        {
+            digit2 = str2[length2] - '0';
+            carry += result[length1 + length2 + 1] + (digit1 * digit2);
+            result[length1 + length2 + 1] = carry % 10;
+            carry /= 10;
+        }
+        if (carry > 0)
+            result[length1 + length2 + 1] += carry;
+    }
+
+    for (i = 0; i < length - 1; i++)
+    {
+        if (result[i])
+            a = 1;
+        if (a)
+            _putchar(result[i] + '0');
+    }
+
+    if (!a)
+        _putchar('0');
+    _putchar('\n');
+    free(result);
+    return (0);
 }
 
 /**
- * _isdigit - checks if a string contains only digits
- * @s: string to check
- *
- * Return: 1 if all characters are digits, 0 otherwise
+ * is_digit - checks if a string contains only digits
+ * @str: string
+ * Return: 1 if all digits, 0 otherwise
  */
-int _isdigit(char *s)
+int is_digit(char *str)
 {
-	int i = 0;
+    int i = 0;
 
-	while (s[i])
-	{
-		if (s[i] < '0' || s[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+    while (str[i])
+    {
+        if (str[i] < '0' || str[i] > '9')
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
 /**
  * _strlen - returns the length of a string
- * @s: string to measure
- *
- * Return: length of the string
+ * @str: string
+ * Return: length
  */
-int _strlen(char *s)
+int _strlen(char *str)
 {
-	int i = 0;
+    int i = 0;
 
-	while (s[i])
-		i++;
-	return (i);
+    while (str[i] != '\0')
+        i++;
+    return (i);
 }
 
 /**
- * _error - prints "Error" and exits with status 98
- * @res: pointer to allocated memory to free, NULL if none
+ * errors - prints an error message and exits
  */
-void _error(int *res)
+void errors(void)
 {
-	if (res)
-		free(res);
-
-	printf("Error\n");
-	exit(98);
-}
-
-/**
- * multiply - multiplies two numbers given as strings
- * @num1: first number
- * @num2: second number
- */
-void multiply(char *num1, char *num2)
-{
-	int len1 = _strlen(num1);
-	int len2 = _strlen(num2);
-	int *res;
-	int i, j, carry, n1, n2, sum, start;
-
-	res = calloc(len1 + len2, sizeof(int));
-	if (!res)
-		_error(NULL);
-
-	for (i = len1 - 1; i >= 0; i--)
-	{
-		carry = 0;
-		n1 = num1[i] - '0';
-		for (j = len2 - 1; j >= 0; j--)
-		{
-			n2 = num2[j] - '0';
-			sum = n1 * n2 + res[i + j + 1] + carry;
-			carry = sum / 10;
-			res[i + j + 1] = sum % 10;
-		}
-		res[i + j + 1] += carry;
-	}
-
-	start = 0;
-	while (start < (len1 + len2) && res[start] == 0)
-	{
-		start++;
-	}
-
-	if (start == len1 + len2)
-	{
-		_putchar('0');
-	}
-	else
-	{
-		for (; start < len1 + len2; start++)
-		{
-			_putchar(res[start] + '0');
-		}
-	}
-
-	_putchar('\n');
-	free(res);
+    printf("Error\n");
+    exit(98);
 }
