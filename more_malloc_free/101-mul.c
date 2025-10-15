@@ -9,7 +9,7 @@ void errors(void);
  * main - multiplies two positive numbers
  * @argc: number of arguments
  * @argv: array of arguments
- * Return: 0 on success
+ * Return: 0 on success, 98 on error
  */
 int main(int argc, char *argv[])
 {
@@ -17,17 +17,24 @@ int main(int argc, char *argv[])
     int length1, length2, length, i, carry, digit1, digit2, *result, a = 0;
 
     if (argc != 3)
-        errors();
+    {
+        printf("Error\n");
+        exit (98);
+    }
 
     str1 = argv[1];
     str2 = argv[2];
 
     if (!is_digit(str1) || !is_digit(str2))
-        errors();
+    {
+        printf("Error\n");
+        return (98);
+    }
 
     length1 = _strlen(str1);
     length2 = _strlen(str2);
     length = length1 + length2 + 1;
+
     result = malloc(sizeof(int) * length);
     if (!result)
         return (1);
@@ -35,7 +42,7 @@ int main(int argc, char *argv[])
     for (i = 0; i <= length1 + length2; i++)
         result[i] = 0;
 
-    for (length1 = length1 - 1; length1 >= 0; length1--)
+    for (length1 = _strlen(str1) - 1; length1 >= 0; length1--)
     {
         digit1 = str1[length1] - '0';
         carry = 0;
@@ -61,6 +68,7 @@ int main(int argc, char *argv[])
     if (!a)
         _putchar('0');
     _putchar('\n');
+
     free(result);
     return (0);
 }
@@ -95,13 +103,4 @@ int _strlen(char *str)
     while (str[i] != '\0')
         i++;
     return (i);
-}
-
-/**
- * errors - prints an error message and exits
- */
-void errors(void)
-{
-    printf("Error\n");
-    exit(98);
 }
