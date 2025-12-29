@@ -20,4 +20,10 @@ void _error(int *res);
 int _putchar(char c);
 int _isdigit(char *s);
 
+/* main helpers */
+int check_for_digits(char **av);
+void init(char *str, int l);
+char *mul(char n, char *num, int num_index, char *dest, int dest_index);
+void _print(char *str, int l);
+
 #endif
