@@ -81,3 +81,5 @@ https://careerdrill.com/lander
 https://www.youtube.com/watch?v=udapt4FGY20
 https://www.google.com/#q=linked+lists
 https://www.youtube.com/results?search_query=linked+lists
+https://www.youtube.com/watch?v=k0pjD12bzP0
+https://github.com/hs-hq/0x17.c
