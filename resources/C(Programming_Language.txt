@@ -59,3 +59,9 @@ https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/a094c90e7f4
 https://www.youtube.com/watch?v=xDVC3wKjS64
 https://intranet.hbtn.io/concepts/891
 https://stackoverflow.com/questions/605845/should-i-cast-the-result-of-malloc-in-c
+https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/6eb80c79c99f6125450a0dc11b300d46238d1a5a.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T130709Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5789dc37498e137a62d38026c0300120a953af7a4754f764d9346c741f1e57c3
+https://en.wikipedia.org/wiki/Struct_(C_programming_language)
+https://github.com/hs-hq/Betty/wiki/Documentation:-Data-structures
+https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/c8ff3e6f7202be7fa489a584e41d005504a07c23.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T130734Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=53ea5d903cb55af958030d786c466d418aace8fcb8182335e2a50a59089418ab
+https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html
+http://www.catb.org/esr/structure-packing/
