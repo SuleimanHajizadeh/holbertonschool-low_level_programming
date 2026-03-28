@@ -86,3 +86,11 @@ https://github.com/hs-hq/0x17.c
 https://en.wikipedia.org/wiki/File_descriptor
 https://medium.com/@muirujackson/how-to-use-the-i-o-system-calls-open-close-read-and-write-f6f80dc61e2a
 https://www.youtube.com/watch?v=WxNSJAbQ8Ik&ab_channel=DexTutor
+https://www.youtube.com/watch?v=MfhjkfocRR0
+https://en.wikipedia.org/wiki/Hash_function
+https://en.wikipedia.org/wiki/Hash_table
+https://www.laurentluce.com/posts/python-dictionary-implementation/
+https://stackoverflow.com/questions/2061222/what-is-the-true-difference-between-a-dictionary-and-a-hash-table
+https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8
+https://www.php.net/manual/en/intro-whatis.php
+https://www.phpinternalsbook.com/php5/hashtables/basic_structure.html
