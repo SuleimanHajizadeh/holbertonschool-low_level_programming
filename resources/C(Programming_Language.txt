@@ -27,3 +27,8 @@ https://www.programiz.com/c-programming/c-user-defined-functions#:~:text=A%20fun
 https://www.geeksforgeeks.org/c/c-programming-language/
 https://www.tutorialspoint.com/cprogramming/c_header_files.htm
 https://www.youtube.com/watch?v=btAfXqgMkPs
+https://www.youtube.com/watch?v=Z3iGeQ1gIss
+https://www.tutorialspoint.com/cprogramming/c_functions.htm
+https://www.youtube.com/watch?v=qMlnFwYdqIw
+https://www.geeksforgeeks.org/c/c-programming-language/
+https://www.tutorialspoint.com/cprogramming/c_header_files.htm
