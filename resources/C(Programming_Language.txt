@@ -65,3 +65,9 @@ https://github.com/hs-hq/Betty/wiki/Documentation:-Data-structures
 https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/c8ff3e6f7202be7fa489a584e41d005504a07c23.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T130734Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=53ea5d903cb55af958030d786c466d418aace8fcb8182335e2a50a59089418ab
 https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html
 http://www.catb.org/esr/structure-packing/
+https://www.geeksforgeeks.org/c/function-pointer-in-c/
+https://publications.gbdirect.co.uk//c_book/chapter5/function_pointers.html
+https://www.youtube.com/watch?v=ynYtgGUNelE
+https://www.youtube.com/watch?v=sxTFSDAZM8s
+https://boredzo.org/pointers/
+https://en.wikipedia.org/wiki/Opcode
