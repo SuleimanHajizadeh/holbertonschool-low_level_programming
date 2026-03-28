@@ -20,3 +20,10 @@ https://www.tutorialspoint.com/cprogramming/c_while_loop.htm
 https://www.youtube.com/watch?v=Ju1LYO9pkaI
 https://github.com/hs-hq/Betty/blob/main/betty-style.pl
 https://github.com/hs-hq/Betty/blob/main/betty-doc.pl
+https://www.youtube.com/watch?v=Z3iGeQ1gIss
+https://www.tutorialspoint.com/cprogramming/c_functions.htm
+https://www.youtube.com/watch?v=qMlnFwYdqIw
+https://www.programiz.com/c-programming/c-user-defined-functions#:~:text=A%20function%20prototype%20is%20simply,be%20used%20in%20the%20program.
+https://www.geeksforgeeks.org/c/c-programming-language/
+https://www.tutorialspoint.com/cprogramming/c_header_files.htm
+https://www.youtube.com/watch?v=btAfXqgMkPs
