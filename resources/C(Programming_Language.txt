@@ -8,3 +8,15 @@ https://www.youtube.com/watch?v=VDslRumKvRA
 https://github.com/hs-hq/Betty/wiki
 https://harmful.cat-v.org/software/c++/linus
 https://github.com/hs-hq/Betty
+https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2023/10/6cc7d824b12e60d8a83955cd03bcf333b248a66b.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T124730Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5c67c5023ba3a1927f344f67988af3940a7f595b54299642554c2ce9e5b86145
+https://publications.gbdirect.co.uk//c_book/chapter2/keywords_and_identifiers.html
+https://publications.gbdirect.co.uk//c_book/chapter2/integral_types.html
+https://www.tutorialspoint.com/cprogramming/c_arithmetic_operators.htm
+https://www.cprogramming.com/tutorial/c/lesson2.html
+https://www.tutorialspoint.com/cprogramming/if_else_statement_in_c.htm
+https://www.tutorialspoint.com/cprogramming/c_relational_operators.htm
+https://www.fresh2refresh.com/c-programming/c-operators-expressions/c-logical-operators/
+https://www.tutorialspoint.com/cprogramming/c_while_loop.htm
+https://www.youtube.com/watch?v=Ju1LYO9pkaI
+https://github.com/hs-hq/Betty/blob/main/betty-style.pl
+https://github.com/hs-hq/Betty/blob/main/betty-doc.pl
