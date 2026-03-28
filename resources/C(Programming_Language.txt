@@ -54,3 +54,6 @@ https://publications.gbdirect.co.uk//c_book/chapter10/arguments_to_main.html
 http://crasseux.com/books/ctutorial/argc-and-argv.html
 https://www.youtube.com/watch?v=aP1ijjeZc24
 https://www.google.com/webhp?q=unused+variable+C
+https://intranet.hbtn.io/concepts/891
+https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/a094c90e7f466bbeaa49cb24c8f04e7f27aaad41.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T130420Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bb0d7bcd2989fa5652c5cccd4332ab3e24727b38b46cc6e7f1b0e1b9a5faaea5
+https://www.youtube.com/watch?v=xDVC3wKjS64
