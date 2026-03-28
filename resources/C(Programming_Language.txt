@@ -74,3 +74,10 @@ https://en.wikipedia.org/wiki/Opcode
 https://en.wikipedia.org/wiki/Stdarg.h
 https://sourceware.org/glibc/manual/
 https://www.youtube.com/watch?v=1W4oyuOdXv8
+https://intranet.hbtn.io/concepts/889
+https://www.tutorialspoint.com/data_structures_algorithms/data_structures_basics.htm
+https://www.geeksforgeeks.org/dsa/dsa-tutorial-learn-data-structures-and-algorithms/
+https://careerdrill.com/lander
+https://www.youtube.com/watch?v=udapt4FGY20
+https://www.google.com/#q=linked+lists
+https://www.youtube.com/results?search_query=linked+lists
