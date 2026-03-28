@@ -94,3 +94,11 @@ https://stackoverflow.com/questions/2061222/what-is-the-true-difference-between-
 https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8
 https://www.php.net/manual/en/intro-whatis.php
 https://www.phpinternalsbook.com/php5/hashtables/basic_structure.html
+https://en.wikipedia.org/wiki/Binary_tree
+https://www.tutorialspoint.com/data_structures_algorithms/tree_data_structure.htm
+https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm
+https://en.wikipedia.org/wiki/Binary_search_tree
+https://www.youtube.com/watch?v=H5JubkIy_p8
+https://github.com/hs-hq/0x1C.c
+https://en.wikipedia.org/wiki/AVL_tree
+https://en.wikipedia.org/wiki/Binary_heap
