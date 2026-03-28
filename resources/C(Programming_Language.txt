@@ -38,3 +38,4 @@ https://www.tutorialspoint.com/cprogramming/c_arrays.htm
 https://www.tutorialspoint.com/cprogramming/c_pointers.htm
 https://www.tutorialspoint.com/cprogramming/c_strings.htm
 https://aticleworld.com/memory-layout-of-c-program/
+https://github.com/hs-hq
