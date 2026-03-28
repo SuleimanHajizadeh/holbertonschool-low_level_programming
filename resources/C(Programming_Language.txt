@@ -71,3 +71,6 @@ https://www.youtube.com/watch?v=ynYtgGUNelE
 https://www.youtube.com/watch?v=sxTFSDAZM8s
 https://boredzo.org/pointers/
 https://en.wikipedia.org/wiki/Opcode
+https://en.wikipedia.org/wiki/Stdarg.h
+https://sourceware.org/glibc/manual/
+https://www.youtube.com/watch?v=1W4oyuOdXv8
