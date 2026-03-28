@@ -44,3 +44,9 @@ https://www.tutorialspoint.com/cprogramming/c_pointer_to_pointer.htm
 https://beginnersbook.com/2014/01/c-pointer-to-pointer/
 https://www.tutorialspoint.com/cprogramming/c_multi_dimensional_arrays.htm
 https://web.archive.org/sry
+https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/misc/2021/1/2818ba6f14f644b871dcbd746925fa15b8cd5937.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20260328%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20260328T130036Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f3a49d76a68061e1a85829ef8de4f7c0a54c84f0f2bca3b049656967a2358dfb
+https://www.tutorialspoint.com/cprogramming/c_recursion.htm
+https://www.youtube.com/watch?v=Mv9NEXX1VHc
+https://www.youtube.com/watch?v=XGxbXMP6k8k
+https://www.youtube.com/watch?v=7XiIS6HobNs
+https://en.wikipedia.org/wiki/Prime_number
