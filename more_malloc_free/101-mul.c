@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 	len = len1 + len2 + 1;
 	result = malloc(sizeof(int) * len);
 	if (!result)
-		return (1);
+		errors();
 	for (i = 0; i <= len1 + len2; i++)
 		result[i] = 0;
 	for (len1 = len1 - 1; len1 >= 0; len1--)
