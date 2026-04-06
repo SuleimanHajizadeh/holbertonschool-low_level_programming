@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 #define ERR_MSG "Error"
@@ -14,6 +13,8 @@ int is_digit(char *s)
 {
 	int i = 0;
 
+	if (!s[0])
+		return (0);
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
@@ -45,7 +46,13 @@ int _strlen(char *s)
  */
 void errors(void)
 {
-	printf("Error\n");
+	char *s = "Error\n";
+	int i;
+
+	for (i = 0; s[i]; i++)
+	{
+		_putchar(s[i]);
+	}
 	exit(98);
 }
 
